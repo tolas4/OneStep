@@ -10,6 +10,9 @@ class MyTest(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
+        driver = self.driver
+        self.open()
+        driver.switch_to.frame("login_frame")
 
     def tearDown(self):
         self.driver.quit()

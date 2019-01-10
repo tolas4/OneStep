@@ -23,17 +23,19 @@ class LoginPage(Page):
 
     def type_username(self, username):
         self.find_element(*self.username_loc).send_keys(username)
+        self.find_element(*self.username_loc).clear()
 
     def type_password(self, password):
         self.find_element(*self.password_loc).send_keys(password)
+        self.find_element(*self.password_loc).clear()
 
     def submit(self):
         self.find_element(*self.submit_loc).click()
 
     def test_user_login(self, username="", password=""):
-        driver = self.driver
-        self.open()
-        driver.switch_to.frame("login_frame")
+        # driver = self.driver
+        # self.open()
+        # driver.switch_to.frame("login_frame")
         self.type_username(username)
         self.type_password(password)
         self.submit()

@@ -27,7 +27,6 @@ class loginTest(myunit.MyTest):
         po = LoginPage(self.driver)
         self.assertEqual(po.error_hint(), "你还没有输入帐号！")
         function.insert_img(self.driver, "user_empty.jpg")
-        sleep(2)
 
     def test_login3(self):
         '''用户名、密码为空登录'''
