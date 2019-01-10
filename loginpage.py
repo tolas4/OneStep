@@ -30,29 +30,44 @@ class LoginPage(Page):
     def submit(self):
         self.find_element(*self.submit_loc).click()
 
-    def test_user_login(self):
-        """
-        测试
-        :param username:
-        :param password:
-        :return:
-        """
+    def test_user_login(self, username="", password=""):
         driver = self.driver
-        user_file = open('qquser.txt', 'r')
-        lines = user_file.readline()
-        user_file.close()
-        username = lines.split(',')[0]
-        password = lines.split(',')[1]
-        print(username, password)
-        driver.maximize_window()
-
-        driver.implicitly_wait(10)
         self.open()
-        # self.to_iframe()
         driver.switch_to.frame("login_frame")
         self.type_username(username)
         self.type_password(password)
         self.submit()
+        sleep(1)
+
+
+    error_hint_loc = (By.ID, 'err_m')
+
+    def error_hint(self):
+        return self.find_element(*self.error_hint_loc).text
+
+    # def test_user_login(self):
+    #     """
+    #     测试
+    #     :param username:
+    #     :param password:
+    #     :return:
+    #     """
+    #     driver = self.driver
+    #     user_file = open('qquser.txt', 'r')
+    #     lines = user_file.readline()
+    #     user_file.close()
+    #     username = lines.split(',')[0]
+    #     password = lines.split(',')[1]
+    #     print(username, password)
+    #     driver.maximize_window()
+    #
+    #     driver.implicitly_wait(10)
+    #     self.open()
+    #     # self.to_iframe()
+    #     driver.switch_to.frame("login_frame")
+    #     self.type_username(username)
+    #     self.type_password(password)
+    #     self.submit()
 
 
 # def main():

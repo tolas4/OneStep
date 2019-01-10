@@ -7,7 +7,7 @@ class Page(object):
     """
     login_url = 'https://mail.qq.com'
 
-    def __init__(self, selenium_driver = webdriver.Chrome(), base_url = login_url):
+    def __init__(self, selenium_driver, base_url = login_url):
         self.base_url = base_url
         self.driver = selenium_driver
         self.timeout = 30
