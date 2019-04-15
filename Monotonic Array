@@ -1,0 +1,17 @@
+class Solution:
+    def isMonotonic(self, A: List[int]) -> bool:
+        if len(A) == 1:
+            return True
+        flag = ""
+        for i in range(0, len(A)-1):
+            if A[i] == A[i+1]:
+                continue
+            elif A[i] >  A[i+1]:
+                if flag != "big" and flag != "":
+                    return False
+                flag = "big"
+            else:
+                if flag != "small" and flag != "":
+                    return False
+                flag ="small"
+        return True
